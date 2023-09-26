@@ -9,17 +9,6 @@ select p.ProductName,c.CategoryName,s.SupplierName
              on p.SupplierID=s.SupplierID ;
              
     --  Calculate the total sales revenue for each category for the year 2023.
-      
-select c.CategoryName,sum(s.QuantitySold*totalamount)  as sales_revenue
- from 
-dim_categories c 
- join dim_products p 
- on c.CategoryID=p.CategoryID 
- join fact_sales s on   
- p.ProductID=s.ProductID 
- where year(s.saledate)=2023
-group by CategoryName  
-order by sales_revenue desc;
 
 
 SELECT
